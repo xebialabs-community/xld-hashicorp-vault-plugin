@@ -1,25 +1,25 @@
 # HashiCorp Vault plugin for XLDeploy
 
-[![Build Status][xld-hashicort-vault-plugin-travis-image]][xld-hashicort-vault-plugin-travis-url]
-[![Codacy Badge][xld-hashicort-vault-plugin-codacy-image] ][xld-hashicort-vault-plugin-codacy-url]
-[![Code Climate][xld-hashicort-vault-plugin-code-climate-image] ][xld-hashicort-vault-plugin-code-climate-url]
-[![License: MIT][xld-hashicort-vault-plugin-license-image] ][xld-hashicort-vault-plugin-license-url]
-[![Github All Releases][xld-hashicort-vault-plugin-downloads-image] ]()
+[![Build Status][xld-hashicorp-vault-plugin-travis-image]][xld-hashicorp-vault-plugin-travis-url]
+[![Codacy Badge][xld-hashicorp-vault-plugin-codacy-image] ][xld-hashicorp-vault-plugin-codacy-url]
+[![Code Climate][xld-hashicorp-vault-plugin-code-climate-image] ][xld-hashicorp-vault-plugin-code-climate-url]
+[![License: MIT][xld-hashicorp-vault-plugin-license-image] ][xld-hashicorp-vault-plugin-license-url]
+[![Github All Releases][xld-hashicorp-vault-plugin-downloads-image] ]()
 
 
-[xld-hashicort-vault-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xld-hashicort-vault-plugin.svg?branch=master
-[xld-hashicort-vault-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xld-hashicort-vault-plugin
-[xld-hashicort-vault-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/49e14532522f4d6f8326b1899efd8cd3
-[xld-hashicort-vault-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-hashicort-vault-plugin
-[xld-hashicort-vault-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-hashicort-vault-plugin/badges/gpa.svg
-[xld-hashicort-vault-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-hashicort-vault-plugin
-[xld-hashicort-vault-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
-[xld-hashicort-vault-plugin-license-url]: https://opensource.org/licenses/MIT
-[xld-hashicort-vault-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-hashicort-vault-plugin/total.svg
+[xld-hashicorp-vault-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xld-hashicorp-vault-plugin.svg?branch=master
+[xld-hashicorp-vault-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xld-hashicorp-vault-plugin
+[xld-hashicorp-vault-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/49e14532522f4d6f8326b1899efd8cd3
+[xld-hashicorp-vault-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-hashicorp-vault-plugin
+[xld-hashicorp-vault-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-hashicorp-vault-plugin/badges/gpa.svg
+[xld-hashicorp-vault-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-hashicorp-vault-plugin
+[xld-hashicorp-vault-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xld-hashicorp-vault-plugin-license-url]: https://opensource.org/licenses/MIT
+[xld-hashicorp-vault-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-hashicorp-vault-plugin/total.svg
 
 ## Overview
 
-The HashiCorp Vault plugin is an XL Deploy plugin that fetch information from a Vault server:username, password, private key file path,...
+The HashiCorp Vault plugin is an XL Deploy plugin that fetch information for a host into a Vault server:username, password, private key file path,...
 
 ## Requirements
 
@@ -32,17 +32,12 @@ Place the plugin `xldp` file into your `SERVER_HOME/plugins` directory.
 
 ## Usage
 
-A `smoketest.Runner` CI is a container from which the test will be performed.
+Define one or more `vault.Server` CI is under the 'Configuration' Node.
 
-3 Deployables are provided that will be deployed onto a `smoketest.Runner`
-
-* `smoketest.HttpRequestTest` for a HTTP request using the GET verb
-* `smoketest.HttpPostRequestTest` for a HTTP request using the POST verb
-* `smoketest.HttpPostRequestFileTest` for a HTTP request using the POST verb and a file that contains the post data.
-
-## Expected and Unexpected text
-
-You can specify what text you expect to be in the response, like version numbers. And/or you can specify the text that should not be in the response, like error statements.
+All the host types have extra properties to link them to a key in a vault
+* managedByVault (default false) 
+* vaultServer
+* vaultKey an alternative key to look up in the vault, instead it is secret/[ci.id]
 
 
 ## Setup
