@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    Copyright 2017 XEBIALABS
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<!--
+    Note: If you modify this file, you must restart the XL Deploy server.
+-->
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <type-modification type="overthere.Host">
+    <property category="Vault" name="managedByVault" kind="boolean" default="false" required="false"/>
+    <property category="Vault" name="vaultServer" kind="ci" required="false" referenced-type="vault.Server" />
+    <property category="Vault" name="vaultKey"    required="false"/>
+  </type-modification>
+
+  <type type="vault.Server" extends="udm.Configuration" root="CONFIGURATION">
+    <property name="url"  />
+    <property name="rootToken" required="true"/>
+    <property name="unsealKey" required="false"/>
+  </type>
+</synthetic>

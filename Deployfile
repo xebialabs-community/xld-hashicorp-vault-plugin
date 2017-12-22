@@ -1,0 +1,34 @@
+xld {
+    scope(
+            forInfrastructure: 'Infrastructure/hosts'
+    ) {
+        infrastructure('vagrant.1', 'overthere.SshHost') {
+            os = com.xebialabs.overthere.OperatingSystemFamily.UNIX
+            managedByVault = true
+            vaultServer = ref('Configuration/vault dev')
+            address = '127.0.0.1'
+            port = 2222
+            username = 'vagrant'
+            password = 'vagrant'
+        }
+        infrastructure('vagrant.2', 'overthere.SshHost') {
+            os = com.xebialabs.overthere.OperatingSystemFamily.UNIX
+            managedByVault = true
+            vaultServer = ref('Configuration/vault dev')
+            address = '127.0.0.1'
+            port = 2222
+            username = 'vagrant'
+            password = 'vagrant'
+        }
+    }
+    scope(
+            forEnvironments: 'Environments/vault-demo'
+    ) {
+        environment('dev') {
+            members = [
+                    ref('Infrastructure/hosts/vagrant.1'),
+                    ref('Infrastructure/hosts/vagrant.2')
+            ]
+        }
+    }
+}
