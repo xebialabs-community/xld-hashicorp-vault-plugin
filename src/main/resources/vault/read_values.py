@@ -8,17 +8,18 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-import os
-import sys
-
 import hvac
+import sys
 
 # Using plaintext
 vault_server = target.vaultServer
 print "Connection to client {0} {1}".format(vault_server.name, vault_server.url)
 client = hvac.Client(url=vault_server.url, token=vault_server.rootToken)
-key = "secret/{0}".format(target.id)
-print key
+if target.vaultKey is None:
+    key = "secret/{0}".format(target.id)
+else:
+    key = target.vaultKey
+print 'the vault key is {0}'.format(key)
 read_values = client.read(key)
 if read_values is None:
     print "Key {0} not found".format(key)
@@ -27,6 +28,4 @@ if read_values is None:
 for k in read_values['data']:
     v = read_values['data'][k]
     print "overide {0} property".format(k)
-    target.setProperty(k,v)
-
-
+    target.setProperty(k, v)

@@ -10,11 +10,9 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-<!--
-    Note: If you modify this file and automatic reloading is disabled in `planner.conf`, you must restart the XL Deploy server.
--->
+
 <rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
-  <rule name="vault.injector" scope="pre-plan">
-    <planning-script-path>vault/planning/fetch-info-from-vault.py</planning-script-path>
-  </rule>
+    <rule name="vault.injector" scope="pre-plan">
+        <planning-script-path>vault/planning/fetch-info-from-vault.py</planning-script-path>
+    </rule>
 </rules>

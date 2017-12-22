@@ -10,19 +10,17 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-<!--
-    Note: If you modify this file, you must restart the XL Deploy server.
--->
-<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <type-modification type="overthere.Host">
-    <property category="Vault" name="managedByVault" kind="boolean" default="false" required="false"/>
-    <property category="Vault" name="vaultServer" kind="ci" required="false" referenced-type="vault.Server" />
-    <property category="Vault" name="vaultKey"    required="false"/>
-  </type-modification>
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd"
+           xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <type-modification type="overthere.Host">
+        <property category="Vault" name="managedByVault" kind="boolean" default="false" required="false"/>
+        <property category="Vault" name="vaultServer" kind="ci" required="false" referenced-type="vault.Server"/>
+        <property category="Vault" name="vaultKey" required="false" description="alternative key to look up in the vault, instead it is secret/[ci.id]"/>
+    </type-modification>
 
-  <type type="vault.Server" extends="udm.Configuration" root="CONFIGURATION">
-    <property name="url"  />
-    <property name="rootToken" required="true"/>
-    <property name="unsealKey" required="false"/>
-  </type>
+    <type type="vault.Server" extends="udm.Configuration" root="CONFIGURATION">
+        <property name="url"/>
+        <property name="rootToken" required="true"/>
+        <property name="unsealKey" required="false"/>
+    </type>
 </synthetic>
