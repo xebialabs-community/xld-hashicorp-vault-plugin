@@ -19,7 +19,7 @@
 
 ## Overview
 
-The HashiCorp Vault plugin is an XL Deploy plugin that fetch information for a host into a Vault server:username, password, private key file path,...
+The [HashiCorp Vault](https://www.vaultproject.io/) plugin is an XL Deploy plugin that fetch information for a host into a Vault server:username, password, private key file path,...
 
 ## Requirements
 
